@@ -39,7 +39,7 @@
 
 
 
-\title{ A Robust High Voltage feedthrough for cryogenic systems}
+\title{ A Robust High Voltage Feedthrough for Cryogenic Detector Systems}
 
 \author[a,1]{J.Doe,\note{Corresponding author}}
 
@@ -48,12 +48,12 @@
 \affiliation[b]{Michigan State University,\\ 426 Auditorium Rd. East Lansing, Mi, 48824, USA}
 
 
-\abstract{Conventional liquid noble gas time projection chambers (TPCs) consist of discreet field-shaping rings between a cathode and an anode, to maintain a uniform electric field throughout the drift volume. 
-	The field-shaping rings are connected by a resistor chain to gradually reduce the voltage, approximating a linear potential gradient. 
-	Here, we present a novel alternative approach to HVFT
-	We report studies of the electrical properties of  performed in several apparatus. 
-	We find that the resistance dependence is exponential with the square root of the temperature, resulting in an increase in the resistivity of by an order of magnitude when cooled to \SIrange{77}{90}{\kelvin}. 
-	We also find that the dependence on the applied voltage follows the hopping-transportation model, with an exponential decay with respect to the square root of the electric field.} 
+\abstract{
+The need for reliable HV delivery into cryogenic environments
+Key challenges: thermal contraction, dielectric integrity, long-term stability.
+Summary of design.
+Validation results: cryogenic cycling, mechanical compliance, HIPOT
+Statement of broader applicability beyond LArTPCs} 
 
 
 
@@ -64,43 +64,150 @@
 \maketitle
 
 
-
-
 \section{Introduction}
 \label{sec:intro}
-\subsection{Motivation}
 
-\subsection{SLAC liquid argon test stand}
+Frame the problem generically, not as DUNE-specific.
 
-\begin{figure}[ht]
-	{\includegraphics[width=0.6\linewidth]{inside_rans.jpg}}
-	{\includegraphics[width=0.42\linewidth]{rans.png}}
-	\caption{(Left) A photograph of the LAr test assembly.
-		The white tube is a polytetrafluoroethylene dielectric shield for the high voltage feedthrough that connects to a stainless port in the top of the dummy cathode. 
-		The sample is mounted at an angle between the base of the cathode and a ground point on the fiber glass support structure. 
-		(Right) A CAD of the LAr test stand. 
-		The blue surface is the liquid level. 
-		The cylinder on the right is a thermosyphon used to provide cooling.}
-	\label{fig:full_sys}
-\end{figure}
+Content:
+Role of HV feedthroughs in cryogenic systems (detectors, HV test stands, industrial cryo systems).
+Key failure modes: dielectric breakdown at interfaces, thermal stress and cracking, differential contraction, surface flashover in gas ullage.
+Limitations of existing approaches: ceramic FT, epoxy potting, rigid designs.
+
+Positioning statement:
+Introduce design as a mechanically compliant, cryogenically robust HVFT architecture.
+
+Figures:
+Conceptual diagram of HV feedthrough challenges (thermal gradients, interfaces, field regions)
 
 
+\section{Design Requirements and Constraints}
+\label{sec:req}
 
-\section{Discussion and Conclusions}
-\label{sec:sum}
+Keep this general but grounded in real constraints.
 
+Content:
+Electrical: operating voltage range, safety margin (HIPOT target), field grading requirements.
+Mechanical: differential contraction (room temp → cryogenic), tolerance to thermal gradients.
+Materials: dielectric compatibility, cryogenic stability, purity considerations (outgassing).
+Integration: interface to HV cable, interface to cathode or load, sealing at flange.
 
-summary
+Quietly inherit values from ND-LAr or FNAL requirements doc, but present them as representative design targets, not experiment requirements.
+
+Figures:
+Maybe a table summarizing requirements
+
+\section{Feedthrough Design}
+\label{sec:des}
+
+\subsection{Overall Architecture}
+Coaxial or quasi-coaxial structure
+Insulation strategy (solid dielectric vs composite)
+Field shaping approach (pill, surface disruptors, sock roll)
+
+Figures:
+Annotated full assembly cross-section(s)
+
+\subsection{Electrical Design}
+Field distribution strategy
+Avoidance of high-field regions at interfaces (radii)
+Grading (geometric, resistive, or both if applicable)
+
+Figures:
+Electrostatic simulation plots:field magnitude along axis, surface field at critical interfaces. \todo{James ask Marco}
+
+\subsection{Mechanical Design and Compliance}
+This is where the design differentiates itself.
+
+Handling of thermal contraction: compliant regions, sliding or flexure interfaces.
+Accommodation of thermal gradients.
+Mechanical decoupling between cryostat boundary and cathode.
+
+Explicitly mention: sufficient extension in the cathode connection to accommodate contraction.
+
+Figures:
+CAD showing compliant features
+Thermal contraction schematic (room temp vs cryo)
+
+\subsection{Materials and Interfaces}
+Dielectric material choice
+Conductor materials
+Sealing approach (Ultra torr + CF)
+Interface treatments (surface finish, stress relief)
+
+Figures:
+Exploded view of components
+Interface detail close-ups
+
+\subsection{Integration with System}
+Keep this generic (not DUNE-specific)
+
+Connection to HV supply (splice)
+Connection to load (e.g. cathode)
+Installation considerations
+
+\section{Fabrication & Assembly}
+\label{sec:fab}
+Manufacturing approach (machining, bonding, assembly sequence)
+Critical tolerances
+Quality control steps
+
+Figures:
+Assembly sequence diagram
+Photograph of fabricated unit
+
+\section{Experimental Validation}
+\label{sec:val}
+This section must be rigorous and decisive.
+
+\subsection{Cryogenic Testing}
+Cooling profile
+Number of cycles
+Observations: no cracking, stable operation, no discharge
+
+Explicitly mention: rapid cooling tolerance, stability under thermal gradients.
+
+Figures:
+Test setup photo
+Temperature vs time plot
+
+\subsection{Mechanical Performance}
+Evidence of contraction accommodation
+Cathode connection compliance
+
+Figures:
+Before/after geometry or displacement illustration
+
+\subsection{High Potential Testing (HIPOT)}
+Test configuration
+Voltage levels reached
+Duration
+Margin relative to operating voltage
+
+Figures:
+HV test setup
+current and voltage 
+
+\section{Discussion}
+\label{sec:dis}
+Why the design works: field control + mechanical compliance. 
+Comparison to traditional designs: rigid ceramic feedthroughs, epoxy-potted designs.
+Reliability considerations: long-term stability, scalability.
+Generalization: applicability to other cryogenic detectors, relevance to non-detector cryogenic HV systems
+
+\section{Conclusions}
+\label{sec:con}
+Must be concise
+
+Restate what was demonstrated: robust HV delivery, cryogenic stability, mechanical compliance.
+Emphasize: validated design, transferable architecture.
+
 
 \section{Acknowledgment} 
 
 
-
 \clearpage
-% ========================================================================
-% bibliography
-% ========================================================================
-%\printbibliography
+
 \bibliographystyle{JHEP}
 \bibliography{HVFTBib}
 
